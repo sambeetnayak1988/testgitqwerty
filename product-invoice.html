@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Purchase Invoice</title>
+  <style>
+    :root {
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #d1d5db;
+      --accent: #0f766e;
+      --bg: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    .invoice {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 28px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      padding-bottom: 18px;
+      border-bottom: 2px solid var(--line);
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 28px;
+      color: var(--accent);
+    }
+
+    .brand p,
+    .meta p {
+      margin: 4px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 22px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px 0;
+      font-size: 15px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .card p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 22px;
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f1f5f9;
+    }
+
+    .totals {
+      margin-top: 18px;
+      width: 340px;
+      margin-left: auto;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 14px;
+    }
+
+    .totals-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 8px 0;
+      font-size: 14px;
+    }
+
+    .totals-row.grand-total {
+      font-size: 17px;
+      font-weight: bold;
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+
+    .footer {
+      margin-top: 24px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      .section {
+        grid-template-columns: 1fr;
+      }
+
+      .header {
+        flex-direction: column;
+      }
+
+      .totals {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="invoice">
+    <div class="header">
+      <div class="brand">
+        <h1>UrbanTech Store</h1>
+        <p>24 Market Street, Bengaluru, India</p>
+        <p>Email: support@urbantechstore.com | Phone: +91 98765 43210</p>
+      </div>
+      <div class="meta">
+        <p><strong>Invoice No:</strong> INV-2026-0414</p>
+        <p><strong>Invoice Date:</strong> 14-Apr-2026</p>
+        <p><strong>Due Date:</strong> 21-Apr-2026</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="card">
+        <h3>Bill To</h3>
+        <p><strong>Customer:</strong> Rahul Sharma</p>
+        <p><strong>Address:</strong> 17 Lake View Road, Pune, India</p>
+        <p><strong>Email:</strong> rahul.sharma@email.com</p>
+        <p><strong>Phone:</strong> +91 99887 77665</p>
+      </div>
+      <div class="card">
+        <h3>Payment Details</h3>
+        <p><strong>Method:</strong> UPI</p>
+        <p><strong>Transaction ID:</strong> UPI8726349082</p>
+        <p><strong>Status:</strong> Paid</p>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Product</th>
+          <th>Description</th>
+          <th>Qty</th>
+          <th>Unit Price</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Wireless Mouse</td>
+          <td>2.4GHz ergonomic mouse</td>
+          <td>2</td>
+          <td>Rs. 650.00</td>
+          <td>Rs. 1,300.00</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Mechanical Keyboard</td>
+          <td>RGB backlit, blue switch</td>
+          <td>1</td>
+          <td>Rs. 2,800.00</td>
+          <td>Rs. 2,800.00</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>USB-C Hub</td>
+          <td>6-in-1 adapter with HDMI</td>
+          <td>1</td>
+          <td>Rs. 1,200.00</td>
+          <td>Rs. 1,200.00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="totals">
+      <div class="totals-row">
+        <span>Subtotal</span>
+        <span>Rs. 5,300.00</span>
+      </div>
+      <div class="totals-row">
+        <span>GST (18%)</span>
+        <span>Rs. 954.00</span>
+      </div>
+      <div class="totals-row">
+        <span>Shipping</span>
+        <span>Rs. 120.00</span>
+      </div>
+      <div class="totals-row grand-total">
+        <span>Total</span>
+        <span>Rs. 6,374.00</span>
+      </div>
+    </div>
+
+    <div class="footer">
+      Thank you for your purchase. This is a computer-generated invoice and does not require a signature.
+    </div>
+  </div>
+</body>
+</html>
